@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>ВИЛКИ</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080e;--s:#0f0f18;--c:#13131e;--c2:#181825;--b:#222233;--b2:#2a2a40;--a:#00ff88;--g:#ffcc00;--r:#ff3366;--bl:#4488ff;--pu:#aa66ff;--tx:#e8e8f2;--sb:#a0a0c0;--m:#55557a}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--tx);font-family:Inter,sans-serif;min-height:100vh;overflow-x:hidden;font-size:14px}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,255,136,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,.025) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+.wrap{max-width:980px;margin:0 auto;padding:14px 12px 60px;position:relative;z-index:1}
+@media(min-width:768px){.wrap{padding:30px 26px 80px}}
+
+/* HEADER */
+header{text-align:center;margin-bottom:18px;position:relative}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,11vw,82px);letter-spacing:10px;background:linear-gradient(135deg,var(--a),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;filter:drop-shadow(0 0 22px rgba(0,255,136,.2))}
+.tag{color:var(--m);font-size:10px;letter-spacing:5px;text-transform:uppercase;margin-top:4px}
+.badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.18);border-radius:20px;padding:5px 14px;font-size:10px;color:var(--a);letter-spacing:2px;margin-top:10px}
+.dot{width:6px;height:6px;background:var(--a);border-radius:50%;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+
+/* LANG */
+.lbar{position:absolute;top:0;right:0;display:flex;gap:3px;z-index:10}
+.lb{padding:4px 8px;border-radius:5px;font-size:12px;cursor:pointer;border:1px solid var(--b2);background:var(--s);color:var(--m);transition:all .2s;user-select:none}
+.lb.on{background:rgba(0,255,136,.12);border-color:rgba(0,255,136,.35);color:var(--a)}
+
+/* TABS */
+.tabs{display:flex;gap:2px;background:var(--s);border:1px solid var(--b);border-radius:12px;padding:3px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:8px 10px;border:none;background:transparent;color:var(--m);font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;border-radius:7px;transition:all .2s;white-space:nowrap}
+.tab.on{background:var(--c);color:var(--a);border:1px solid rgba(0,255,136,.2)}
+.pane{display:none}.pane.on{display:block}
+
+/* CARD */
+.card{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:16px;margin-bottom:11px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--a),transparent);opacity:.3}
+.ct{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:3px;color:var(--a);margin-bottom:12px}
+
+/* FORM */
+.fi{margin-bottom:9px}
+.fi label,.sl{display:block;font-size:10px;font-weight:600;letter-spacing:2px;color:var(--m);margin-bottom:4px;text-transform:uppercase}
+input,select{width:100%;background:var(--bg);border:1px solid var(--b2);color:var(--tx);font-family:Inter,sans-serif;font-size:13px;padding:9px 12px;border-radius:8px;outline:none;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
+input:focus,select:focus{border-color:var(--a);box-shadow:0 0 0 3px rgba(0,255,136,.08)}
+input[type=number]{-moz-appearance:textfield}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2355557a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+select option{background:var(--c)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+@media(max-width:500px){.r2{grid-template-columns:1fr}}
+.fr{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
+.fr>.fi{flex:1;min-width:100px;margin-bottom:0}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 15px;border:none;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;cursor:pointer;transition:all .18s;width:100%}
+.bp{background:linear-gradient(135deg,var(--a),#00cc68);color:#000;box-shadow:0 4px 14px rgba(0,255,136,.2)}
+.bp:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(0,255,136,.3)}
+.bp:active,.bp:disabled{transform:none;opacity:.5;cursor:not-allowed}
+.bg{background:var(--s);color:var(--tx);border:1px solid var(--b2)}
+.bg:hover{border-color:var(--a);color:var(--a)}
+.br{background:rgba(255,51,102,.1);color:var(--r);border:1px solid rgba(255,51,102,.25)}
+.br:hover{background:rgba(255,51,102,.2)}
+.bsm{padding:7px 12px;font-size:13px;width:auto}
+.bxs{padding:4px 8px;font-size:11px;width:auto;border-radius:5px}
+
+/* BK BOX */
+.bkb{background:var(--s);border:1px solid var(--b);border-radius:9px;padding:11px;margin-bottom:7px;transition:border-color .2s}
+.bkb:focus-within{border-color:rgba(0,255,136,.35)}
+.bkt{display:inline-block;background:rgba(0,255,136,.1);color:var(--a);border-radius:4px;padding:2px 8px;font-size:10px;margin-bottom:6px;font-weight:600}
+
+/* RESULT */
+.rw{display:none;background:var(--s);border-radius:13px;padding:15px;margin-top:10px;border:1px solid var(--b)}
+.rw.on{display:block}
+.rh{text-align:center;padding:13px;border-radius:9px;margin-bottom:11px}
+.rh.profit{background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.25)}
+.rh.loss{background:rgba(255,51,102,.07);border:1px solid rgba(255,51,102,.25)}
+.rp{font-family:'Bebas Neue',sans-serif;font-size:46px;letter-spacing:5px;line-height:1}
+.rp.profit{color:var(--a)}.rp.loss{color:var(--r)}
+.rl{font-size:10px;letter-spacing:3px;color:var(--sb);margin-top:3px;text-transform:uppercase}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:9px}
+.sb{background:var(--c);border-radius:9px;padding:10px;border:1px solid var(--b)}
+.sbl{font-size:10px;letter-spacing:1.5px;color:var(--m);text-transform:uppercase;margin-bottom:3px}
+.sbv{font-size:15px;font-weight:600}
+.sbv.g{color:var(--a)}.sbv.y{color:var(--g)}.sbv.r{color:var(--r)}
+.bg2{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+@media(max-width:460px){.bg2{grid-template-columns:1fr}}
+.bb{background:var(--c2);border-radius:9px;padding:10px;border:1px solid var(--b)}
+.bbl{font-size:10px;color:var(--m);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px}
+.bbo{font-size:11px;color:var(--a);margin-bottom:4px}
+.bba{font-size:17px;font-weight:700}
+.bbr{font-size:11px;color:var(--sb);margin-top:2px}
+
+/* ODDS CHANGE PANEL */
+.oc-panel{display:none;background:rgba(255,204,0,.06);border:1px solid rgba(255,204,0,.25);border-radius:10px;padding:12px;margin-top:9px}
+.oc-panel.on{display:block}
+.oc-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--b);font-size:12px}
+.oc-row:last-child{border-bottom:none}
+.oc-old{color:var(--m);text-decoration:line-through}
+.oc-new{color:var(--a);font-weight:700}
+.oc-warn{color:var(--r);font-weight:600}
+.oc-ok{color:var(--a);font-weight:600}
+
+/* SEARCH */
+.sbar{position:relative;margin-bottom:9px}
+.sbar input{padding-left:33px}
+.sico{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:13px;pointer-events:none}
+.sdrop{background:var(--s);border:1px solid var(--b2);border-radius:9px;margin-top:3px;max-height:250px;overflow-y:auto;display:none;z-index:10;position:relative}
+.sdrop.on{display:block}
+.si{padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--b);transition:background .15s}
+.si:last-child{border-bottom:none}
+.si:hover{background:var(--c2)}
+.sim{font-size:13px;font-weight:600}
+.sit{font-size:10px;color:var(--m);margin-top:2px}
+.sip{font-size:12px;color:var(--a);font-weight:700}
+
+/* REFRESH BAR */
+.rb{display:flex;align-items:center;gap:7px;background:var(--s);border:1px solid var(--b);border-radius:9px;padding:8px 11px;margin-bottom:9px;flex-wrap:wrap}
+.rb select{width:auto;flex:0 0 auto;padding:4px 26px 4px 9px;font-size:12px}
+.rd{width:7px;height:7px;border-radius:50%;background:var(--m);flex-shrink:0}
+.rd.on{background:var(--a);animation:pulse 1.2s infinite}
+.rcd{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--a);letter-spacing:1px;min-width:26px}
+
+/* ARB CARDS */
+.ac{background:var(--s);border:1px solid var(--b);border-radius:13px;padding:12px;margin-bottom:8px;cursor:pointer;transition:border-color .2s,transform .15s}
+.ac:hover{border-color:rgba(0,255,136,.3);transform:translateY(-1px)}
+.at{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:5px}
+.am{font-size:13px;font-weight:600;flex:1;line-height:1.3}
+.ap{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:var(--a);background:rgba(0,255,136,.1);border:1px solid rgba(0,255,136,.2);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.meta{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px}
+.mt{font-size:10px;padding:2px 6px;border-radius:4px;font-weight:500;border:1px solid transparent}
+.mts{background:rgba(68,136,255,.1);color:var(--bl);border-color:rgba(68,136,255,.2)}
+.mtl{background:rgba(255,204,0,.08);color:var(--g);border-color:rgba(255,204,0,.18)}
+.mtt{background:rgba(160,160,192,.07);color:var(--sb);border-color:var(--b)}
+.mtr{background:rgba(0,255,136,.06);color:var(--a);border-color:rgba(0,255,136,.15)}
+.mtp{background:rgba(170,102,255,.1);color:var(--pu);border-color:rgba(170,102,255,.25)}
+.mttotal{background:rgba(68,136,255,.12);color:var(--bl);border-color:rgba(68,136,255,.3)}
+.legs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px}
+.lg{display:flex;align-items:center;gap:4px;background:var(--c);border:1px solid var(--b2);border-radius:5px;padding:3px 7px;font-size:11px}
+.lbk{color:var(--sb);font-weight:500}
+.lo{color:var(--tx)}.lk{color:var(--g);font-weight:600}
+.ah{font-size:10px;color:var(--m)}
+.ad{display:none;margin-top:9px;padding-top:9px;border-top:1px solid var(--b)}
+.ad.on{display:block}
+
+/* MATCH HERO */
+.mh{background:var(--c);border:1px solid var(--b);border-radius:9px;padding:11px;margin-bottom:9px}
+.mt2{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px}
+.tb{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;max-width:110px}
+.tl{width:40px;height:40px;border-radius:50%;background:var(--c2);border:2px solid var(--b2);display:flex;align-items:center;justify-content:center;font-size:14px;overflow:hidden;flex-shrink:0}
+.tl img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+.tn{font-size:11px;font-weight:600;text-align:center;line-height:1.3}
+.vs{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--m);letter-spacing:3px;flex-shrink:0}
+
+/* BET INSTRUCTIONS */
+.bi{background:var(--c2);border:1px solid var(--b2);border-radius:9px;padding:10px 11px;display:flex;align-items:flex-start;gap:8px;margin-bottom:5px}
+.bin{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--a);width:22px;flex-shrink:0;text-align:center}
+.bib{flex:1;min-width:0}
+.bibk{font-size:10px;color:var(--m);margin-bottom:2px}
+.bibo{font-size:13px;font-weight:700;margin-bottom:2px}
+.biba{font-size:15px;font-weight:700;color:var(--a)}
+.bibk2{font-size:10px;color:var(--g);margin-top:1px}
+.bl{display:inline-flex;align-items:center;gap:3px;font-size:10px;color:var(--a);text-decoration:none;border:1px solid rgba(0,255,136,.2);border-radius:4px;padding:2px 7px;margin-top:3px;margin-right:3px;transition:background .2s;font-weight:500}
+.bl:hover{background:rgba(0,255,136,.1)}
+.ml{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.el{display:inline-flex;align-items:center;gap:3px;font-size:11px;padding:5px 9px;border-radius:5px;text-decoration:none;font-weight:500;transition:all .2s;border:1px solid var(--b2);background:var(--s);color:var(--sb)}
+.el:hover{border-color:var(--a);color:var(--a)}
+.el.ep{background:rgba(0,255,136,.08);border-color:rgba(0,255,136,.25);color:var(--a)}
+.el.ea{background:rgba(68,136,255,.08);border-color:rgba(68,136,255,.25);color:var(--bl)}
+
+/* BK FILTER */
+.ftr{display:flex;gap:4px;flex-wrap:wrap}
+.ft{padding:5px 10px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid var(--b2);background:var(--s);color:var(--m);transition:all .2s}
+.ft.on{background:rgba(0,255,136,.1);border-color:rgba(0,255,136,.3);color:var(--a)}
+.bkg{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.bkc{display:flex;align-items:center;gap:4px;padding:4px 9px;border-radius:5px;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--b2);background:var(--s);color:var(--sb);transition:all .2s;user-select:none}
+.bkc:hover{border-color:rgba(0,255,136,.22)}
+.bkc.on{background:rgba(0,255,136,.08);border-color:rgba(0,255,136,.32);color:var(--a)}
+.bkc.ha{border-color:rgba(255,204,0,.28)}
+.bkc.ha.on{background:rgba(255,204,0,.1);border-color:rgba(255,204,0,.45);color:var(--g)}
+.cd{width:6px;height:6px;border-radius:50%;background:var(--b2);flex-shrink:0}
+.bkc.on .cd{background:var(--a)}.bkc.ha.on .cd{background:var(--g)}
+.cc{font-size:9px;background:rgba(255,204,0,.2);color:var(--g);border-radius:3px;padding:1px 4px}
+
+/* SOURCES */
+.sri{background:var(--s);border:1px solid var(--b);border-radius:9px;padding:10px 12px;margin-bottom:7px}
+.srn{font-size:13px;font-weight:600;margin-bottom:2px}
+.sru{font-size:10px;color:var(--m);margin-bottom:7px}
+.srb{display:flex;gap:6px}
+.srb input{flex:1}
+.ssb{font-size:10px;letter-spacing:1px;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.ssb.ok{background:rgba(0,255,136,.1);color:var(--a);border:1px solid rgba(0,255,136,.2)}
+.ssb.err{background:rgba(255,51,102,.1);color:var(--r);border:1px solid rgba(255,51,102,.2)}
+.ssb.idle{background:rgba(90,90,122,.12);color:var(--m);border:1px solid var(--b)}
+
+/* HISTORY */
+.hi{background:var(--s);border:1px solid var(--b);border-radius:9px;padding:10px 12px;margin-bottom:7px;cursor:pointer;transition:border-color .2s}
+.hi:hover{border-color:rgba(0,255,136,.22)}
+.ht{display:flex;justify-content:space-between;align-items:flex-start;gap:7px;margin-bottom:4px}
+.hm{font-size:13px;font-weight:600}
+.hp{font-family:'Bebas Neue',sans-serif;font-size:16px;white-space:nowrap}
+.hp.p{color:var(--a)}.hp.n{color:var(--r)}
+.hd{display:none;margin-top:7px;padding-top:7px;border-top:1px solid var(--b)}
+.hd.on{display:block}
+
+/* MISC */
+.al{padding:9px 12px;border-radius:7px;font-size:11px;margin-bottom:9px;line-height:1.6}
+.ali{background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.18);color:var(--a)}
+.alw{background:rgba(255,204,0,.05);border:1px solid rgba(255,204,0,.18);color:var(--g)}
+.ale{background:rgba(255,51,102,.05);border:1px solid rgba(255,51,102,.2);color:var(--r)}
+.div{border:none;border-top:1px solid var(--b);margin:11px 0}
+.empty{text-align:center;padding:32px 12px;color:var(--m);font-size:11px;letter-spacing:1.5px}
+.ei{font-size:30px;margin-bottom:7px;opacity:.4}
+.spin{display:inline-block;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pb{height:3px;background:var(--b);border-radius:2px;margin-top:5px;overflow:hidden}
+.pf{height:100%;background:linear-gradient(90deg,var(--a),var(--g));border-radius:2px;transition:width .4s}
+.sc{font-size:11px;color:var(--m);margin-bottom:6px}
+.sc span{color:var(--a);font-weight:600}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:9px}
+.tc{background:var(--s);border:1px solid var(--b);border-radius:9px;padding:11px}
+.ti{font-size:17px;margin-bottom:4px}
+.tth{font-size:11px;font-weight:600;color:var(--a);margin-bottom:3px}
+.tt{font-size:11px;color:var(--m);line-height:1.65}
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--b2);border-radius:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="lbar">
+    <div class="lb on" onclick="setLang('uk')">🇺🇦</div>
+    <div class="lb" onclick="setLang('ru')">🇷🇺</div>
+    <div class="lb" onclick="setLang('en')">🇬🇧</div>
+  </div>
+  <div class="logo">ВИЛКИ</div>
+  <div class="tag" id="Ltag">Арбітражний калькулятор ставок</div>
+  <div class="badge"><div class="dot"></div><span id="Lbadge">СИСТЕМА АКТИВНА</span></div>
+</header>
+
+<div class="tabs">
+  <button class="tab on" onclick="go('calc',this)" id="TCalc">📐 Калькулятор</button>
+  <button class="tab"    onclick="go('scan',this)" id="TScan">🔍 Сканер</button>
+  <button class="tab"    onclick="go('src',this)"  id="TSrc">🔌 Джерела</button>
+  <button class="tab"    onclick="go('tips',this)" id="TTips">💡 Поради</button>
+  <button class="tab"    onclick="go('hist',this)" id="THist">📊 Історія</button>
+</div>
+
+<!-- ══ КАЛЬКУЛЯТОР ══ -->
+<div id="pane-calc" class="pane on">
+  <div class="card">
+    <div class="ct" id="LcsTitle">🔍 ПОШУК МАТЧУ</div>
+    <div class="sbar"><span class="sico">🔍</span>
+      <input type="text" id="matchSearch" oninput="doSearch()" autocomplete="off" placeholder="Пошук матчу...">
+    </div>
+    <div class="sdrop" id="sdrop"></div>
+    <div style="font-size:10px;color:var(--m);margin-top:3px" id="LsearchHint">Введіть команду — знайдемо серед вилок або через API</div>
+  </div>
+
+  <div class="card">
+    <div class="ct" id="LcmTitle">⚡ ДАНІ МАТЧУ</div>
+    <div class="fi"><label id="LmatchL">Назва матчу</label>
+      <input type="text" id="cName" placeholder="Реал Мадрид — Барселона"></div>
+    <div class="fi"><label id="LtypeL">Тип вилки</label>
+      <select id="cType" onchange="buildCalc()">
+        <option value="2" id="Lt2">2 результати (П1/П2)</option>
+        <option value="2d" id="Lt2d">2 рез. з нічиєю</option>
+        <option value="3" id="Lt3">3 результати (П1/X/П2)</option>
+        <option value="ou" id="Ltou">Тотал Більше/Менше</option>
+        <option value="1x2ou">П1/X/П2 + Тотал (4 ставки)</option>
+      </select></div>
+  </div>
+
+  <div class="card">
+    <div class="ct" id="LcbTitle">🏦 БУКМЕКЕРИ ТА КОЕФІЦІЄНТИ</div>
+    <div id="bkIn"></div>
+  </div>
+
+  <!-- Scan info panel -->
+  <div id="scanInfoPanel" style="display:none" class="card">
+    <div class="ct">📡 ЗІ СКАНЕРА</div>
+    <div id="scanInfoContent"></div>
+  </div>
+
+  <!-- Live odds monitor -->
+  <div id="livePanel" style="display:none" class="card">
+    <div class="ct" id="LliveTitle">🔄 МОНІТОРИНГ КОЕФІЦІЄНТІВ</div>
+    <div style="display:flex;gap:7px;align-items:center;margin-bottom:9px;flex-wrap:wrap">
+      <button class="btn bg bsm" id="liveBtn" onclick="toggleLive()">▶ Тримати</button>
+      <span style="font-size:10px;color:var(--m)" id="liveStatus"></span>
+    </div>
+    <div class="oc-panel" id="ocPanel">
+      <div style="font-size:11px;font-weight:600;color:var(--g);margin-bottom:7px" id="ocTitle">Зміна коефіцієнтів:</div>
+      <div id="ocRows"></div>
+      <div id="ocActions" style="margin-top:9px;display:flex;gap:6px;flex-wrap:wrap"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct" id="LcstkTitle">💰 СТАВКА</div>
+    <div class="fr" style="margin-bottom:11px">
+      <div class="fi" style="flex:0 0 130px">
+        <label id="LcurL">Валюта</label>
+        <select id="cCur" onchange="doCalc()">
+          <option value="₴">🇺🇦 UAH ₴</option>
+          <option value="₽">🇷🇺 RUB ₽</option>
+          <option value="$">🇺🇸 USD $</option>
+          <option value="€">🇪🇺 EUR €</option>
+          <option value="£">🇬🇧 GBP £</option>
+          <option value="₸">🇰🇿 KZT ₸</option>
+          <option value="₾">🇬🇪 GEL ₾</option>
+          <option value="zł">🇵🇱 PLN zł</option>
+        </select>
+      </div>
+      <div class="fi">
+        <label id="LstkL">Сума банку</label>
+        <input type="number" id="cStake" value="10000" oninput="doCalc()">
+      </div>
+      <div>
+        <label style="opacity:0;display:block;margin-bottom:4px">.</label>
+        <button class="btn bg bsm" onclick="doCalc()">↻</button>
+      </div>
+    </div>
+    <button class="btn bp" id="LcalcBtn" onclick="doCalc()">РОЗРАХУВАТИ ВИЛКУ</button>
+  </div>
+  <div class="rw" id="cResult"></div>
+</div>
+
+<!-- ══ СКАНЕР ══ -->
+<div id="pane-scan" class="pane">
+  <div class="card">
+    <div class="ct" id="LscanTitle">🔍 АВТОСКАНЕР ВИЛОК</div>
+    <div id="noKeyW" class="al alw"><span id="LnoKey">⚠️ API ключ не налаштовано — додай у 🔌 Джерела</span></div>
+
+    <!-- Auto refresh -->
+    <div class="rb">
+      <span style="font-size:10px;color:var(--m);white-space:nowrap" id="LrefL">Автооновлення:</span>
+      <select id="refSel" onchange="setAutoRef()" style="flex:0 0 auto;width:auto;padding:4px 26px 4px 9px;font-size:12px">
+        <option value="0" id="LrOff">Вимкнено</option>
+        <option value="30">30 сек</option>
+        <option value="60">1 хв</option>
+        <option value="120">2 хв</option>
+        <option value="300">5 хв</option>
+      </select>
+      <div style="display:flex;align-items:center;gap:5px;margin-left:auto">
+        <div class="rd" id="rdot"></div>
+        <span class="rcd" id="rcd"></span>
+        <span style="font-size:10px;color:var(--m)" id="rStat"></span>
+      </div>
+      <button class="btn bg bxs" onclick="doScan()">↻</button>
+    </div>
+
+    <!-- Search in scanner -->
+    <div class="sbar" style="margin-bottom:9px">
+      <span class="sico">🔍</span>
+      <input type="text" id="scanQ" oninput="refilter()" placeholder="Пошук серед вилок...">
+    </div>
+
+    <div class="r2" style="margin-bottom:9px">
+      <div class="fi"><label id="LsportL">Вид спорту</label>
+        <select id="sSport">
+          <option value="ALL" id="LallEv">🌍 Всі події (топ ліги)</option>
+          <optgroup label="⚽ ФУТБОЛ">
+            <option value="soccer_epl">АПЛ (Англія)</option>
+            <option value="soccer_spain_la_liga">Ла Ліга</option>
+            <option value="soccer_germany_bundesliga">Бундесліга</option>
+            <option value="soccer_italy_serie_a">Серія А</option>
+            <option value="soccer_france_ligue_one">Ліга 1</option>
+            <option value="soccer_uefa_champs_league">Ліга Чемпіонів</option>
+            <option value="soccer_uefa_europa_league">Ліга Європи</option>
+            <option value="soccer_brazil_campeonato">Бразилія Серія А</option>
+            <option value="soccer_argentina_primera_division">Аргентина</option>
+            <option value="soccer_turkey_super_ligi">Туреччина</option>
+            <option value="soccer_netherlands_eredivisie">Ередивізі</option>
+            <option value="soccer_portugal_primeira_liga">Португалія</option>
+            <option value="soccer_russia_premier_league">РФПЛ</option>
+            <option value="soccer_usa_mls">MLS</option>
+            <option value="soccer_mexico_ligamx">Ліга MX</option>
+            <option value="soccer_england_league1">Англія Ліга 1</option>
+            <option value="soccer_england_league2">Англія Ліга 2</option>
+            <option value="soccer_england_efl_champ">Чемпіоншип</option>
+            <option value="soccer_scotland_premiership">Шотландія</option>
+            <option value="soccer_korea_kleague1">Корея К-Ліга</option>
+            <option value="soccer_japan_j_league">Японія Дж-Ліга</option>
+            <option value="soccer_australia_aleague">Австралія А-Ліга</option>
+            <option value="soccer_belgium_first_div">Бельгія</option>
+            <option value="soccer_austria_bundesliga">Австрія</option>
+            <option value="soccer_denmark_superliga">Данія</option>
+            <option value="soccer_norway_eliteserien">Норвегія</option>
+            <option value="soccer_sweden_allsvenskan">Швеція</option>
+          </optgroup>
+          <optgroup label="🏀 БАСКЕТБОЛ (є тотал)">
+            <option value="basketball_nba">NBA</option>
+            <option value="basketball_euroleague">Євроліга</option>
+            <option value="basketball_ncaab">NCAA</option>
+            <option value="basketball_wnba">WNBA</option>
+            <option value="basketball_nbl">NBL (Австралія)</option>
+          </optgroup>
+          <optgroup label="🏒 ХОКЕЙ (є тотал)">
+            <option value="icehockey_nhl">NHL</option>
+            <option value="icehockey_sweden_hockey_league">SHL</option>
+            <option value="icehockey_finland_liiga">Liiga</option>
+          </optgroup>
+          <optgroup label="🎾 ТЕНІС">
+            <option value="tennis_atp_french_open">ATP Ролан Гаррос</option>
+            <option value="tennis_wta_french_open">WTA Ролан Гаррос</option>
+            <option value="tennis_atp_wimbledon">ATP Вімблдон</option>
+            <option value="tennis_wta_wimbledon">WTA Вімблдон</option>
+            <option value="tennis_atp_us_open">ATP US Open</option>
+          </optgroup>
+          <optgroup label="🏈 АМЕРИКАНСЬКИЙ ФУТБОЛ (є тотал)">
+            <option value="americanfootball_nfl">NFL</option>
+            <option value="americanfootball_ncaaf">NCAA Football</option>
+          </optgroup>
+          <optgroup label="⚾ БЕЙСБОЛ (є тотал)">
+            <option value="baseball_mlb">MLB</option>
+          </optgroup>
+          <optgroup label="🏉 РЕГБІ">
+            <option value="rugbyleague_nrl">NRL</option>
+            <option value="rugbyunion_premiership">Premiership</option>
+          </optgroup>
+          <optgroup label="🥊 ММА / БОЇ">
+            <option value="mma_mixed_martial_arts">MMA</option>
+            <option value="boxing_boxing">Бокс</option>
+          </optgroup>
+          <optgroup label="🏏 КРИКЕТ">
+            <option value="cricket_ipl">IPL</option>
+            <option value="cricket_international_t20">T20</option>
+          </optgroup>
+          <optgroup label="🎮 КІБЕРСПОРТ">
+            <option value="esports_csgo">CS2/CS:GO</option>
+            <option value="esports_dota2">Dota 2</option>
+            <option value="esports_lol">League of Legends</option>
+            <option value="esports_valorant">Valorant</option>
+            <option value="esports_overwatch">Overwatch</option>
+            <option value="esports_rainbow6">Rainbow Six</option>
+            <option value="esports_rocket_league">Rocket League</option>
+            <option value="esports_fifa">FIFA/EA FC</option>
+            <option value="esports_call_of_duty">Call of Duty</option>
+            <option value="esports_pubg">PUBG</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="fi"><label id="LminPL">Мін. прибуток %</label>
+        <input type="number" id="sMinP" value="0.3" step="0.1" min="0" max="20">
+      </div>
+    </div>
+
+    <!-- Market type -->
+    <div class="fi" style="margin-bottom:9px">
+      <label id="LmktL">Тип ринку</label>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px">
+        <div class="ft on" id="mkt_h2h" onclick="toggleMkt('h2h',this)">П1/X/П2</div>
+        <div class="ft on" id="mkt_totals" onclick="toggleMkt('totals',this)">Тотал</div>
+        <div class="ft on" id="mkt_spreads" onclick="toggleMkt('spreads',this)">Фора</div>
+      </div>
+    </div>
+
+    <div class="fr" style="margin-bottom:11px;gap:6px">
+      <button class="btn bp" id="scanBtn" onclick="doScan()" style="flex:1">▶ <span id="LscanTxt">СКАНУВАТИ</span></button>
+      <button class="btn bg bsm" onclick="clearScan()">✕</button>
+    </div>
+
+    <!-- Progress -->
+    <div id="scanProg" style="display:none;margin-bottom:8px">
+      <div id="scanProgT" style="font-size:11px;color:var(--sb)">...</div>
+      <div class="pb"><div class="pf" id="scanProgF" style="width:0%"></div></div>
+    </div>
+
+    <!-- Odds filter -->
+    <div style="margin-bottom:11px">
+      <div class="sl" id="LoddsF">Фільтр коефіцієнтів</div>
+      <div class="fr" style="gap:7px;margin-bottom:8px">
+        <div class="fi" style="max-width:120px">
+          <label id="LminO">Мін. коеф.</label>
+          <input type="number" id="fMin" value="1.01" step="0.01" min="1.01" max="100" onchange="refilter()">
+        </div>
+        <div class="fi" style="max-width:120px">
+          <label id="LmaxO">Макс. коеф.</label>
+          <input type="number" id="fMax" value="50" step="0.1" min="1" onchange="refilter()">
+        </div>
+        <div>
+          <label style="opacity:0;display:block;margin-bottom:4px">.</label>
+          <button class="btn bg bxs" onclick="resetF()">↺</button>
+        </div>
+      </div>
+
+      <!-- BK filter -->
+      <div class="sl" id="LbkF">Фільтр букмекерів</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:5px;margin-bottom:5px">
+        <div class="ftr">
+          <div class="ft on" id="ftAll" onclick="setFM('all')">Всі БК</div>
+          <div class="ft" id="ftArb" onclick="setFM('arb')">Лише з вилкою</div>
+        </div>
+        <div style="display:flex;gap:4px">
+          <button class="btn bg bxs" onclick="selBks(true)">✓</button>
+          <button class="btn bg bxs" onclick="selBks(false)">✗</button>
+        </div>
+      </div>
+      <div class="bkg" id="bkGrid"><div style="font-size:11px;color:var(--m);padding:4px" id="bkHint">Запусти сканування</div></div>
+    </div>
+
+    <div id="scanOut"><div class="empty"><div class="ei">🔭</div><span id="LscanEmpty">Натисни СКАНУВАТИ щоб знайти вилки</span></div></div>
+  </div>
+</div>
+
+<!-- ══ ДЖЕРЕЛА ══ -->
+<div id="pane-src" class="pane">
+  <div class="card">
+    <div class="ct" id="LsrcTitle">🔌 ДЖЕРЕЛА КОЕФІЦІЄНТІВ</div>
+    <div class="al ali" id="LsrcInfo">Додай API ключ від the-odds-api.com (500 запитів/міс безкоштовно). Кілька джерел = більше вилок.</div>
+    <div id="keysBlock"></div>
+    <button class="btn bg" onclick="addKeyRow()" id="LaddSrc">➕ ДОДАТИ ДЖЕРЕЛО</button>
+    <div class="div"></div>
+    <div class="sl" id="LactiveSrc">Активні джерела</div>
+    <div id="srcList"></div>
+  </div>
+</div>
+
+<!-- ══ ПОРАДИ ══ -->
+<div id="pane-tips" class="pane">
+  <div class="card">
+    <div class="ct" id="LtipsTitle">💡 ЯК ПРАЦЮЮТЬ ВИЛКИ</div>
+    <div class="al ali" id="LtipsIntro">Вилки — легальна математична стратегія. Ставиш на всі результати в різних БК так, що 1/К1+1/К2 &lt; 1 — прибуток гарантований.</div>
+    <div class="tgrid">
+      <div class="tc"><div class="ti">🔢</div><div class="tth" id="Lth1">ФОРМУЛА</div><div class="tt" id="Ltt1">Маржа=1/К1+1/К2. Вилка якщо маржа&lt;1. Прибуток=(1−маржа)×100%</div></div>
+      <div class="tc"><div class="ti">⚡</div><div class="tth" id="Lth2">ШВИДКІСТЬ</div><div class="tt" id="Ltt2">Ставь одразу після знаходження — 5–10 хв можуть вбити вилку.</div></div>
+      <div class="tc"><div class="ti">🎭</div><div class="tth" id="Lth3">МАСКУВАННЯ</div><div class="tt" id="Ltt3">Ставь не круглі суми. Роби паузи. Іноді роби звичайні ставки.</div></div>
+      <div class="tc"><div class="ti">📊</div><div class="tth" id="Lth4">БАНКРОЛ</div><div class="tt" id="Ltt4">5–15% від банку на одну вилку — оптимально.</div></div>
+      <div class="tc"><div class="ti">🏦</div><div class="tth" id="Lth5">РІЗНІ БК</div><div class="tt" id="Ltt5">Мінімум 5–7 різних букмекерів для більше вилок.</div></div>
+      <div class="tc"><div class="ti">🔄</div><div class="tth" id="Lth6">АВТООНОВЛЕННЯ</div><div class="tt" id="Ltt6">30–60 сек для актуальних коефіцієнтів.</div></div>
+      <div class="tc"><div class="ti">⚽</div><div class="tth" id="Lth7">2 РЕЗУЛЬТАТИ</div><div class="tt" id="Ltt7">2 результати у футболі = БК дає подвійний шанс або азіатський гандикап. Перевір умови.</div></div>
+      <div class="tc"><div class="ti">📈</div><div class="tth" id="Lth8">ТОТАЛ</div><div class="tt" id="Ltt8">Тотал-вилки = ставиш Більше в одному БК і Менше в іншому. Є у баскетболі, хокеї, NFL, MLB.</div></div>
+    </div>
+    <div class="div"></div>
+    <div class="al alw" id="LtipsWarn">⚠️ БК можуть занижувати ліміти ставок арбітражерам — починай з малих сум.</div>
+  </div>
+</div>
+
+<!-- ══ ІСТОРІЯ ══ -->
+<div id="pane-hist" class="pane">
+  <div class="card">
+    <div class="ct" id="LhistTitle">📊 ІСТОРІЯ</div>
+    <div id="histStats" style="display:none;margin-bottom:11px">
+      <div class="sg">
+        <div class="sb"><div class="sbl" id="LhTot">Всього</div><div class="sbv" id="hTot">0</div></div>
+        <div class="sb"><div class="sbl" id="LhProf">Прибуткових</div><div class="sbv g" id="hProf">0</div></div>
+        <div class="sb"><div class="sbl" id="LhAvg">Середній %</div><div class="sbv y" id="hAvg">0%</div></div>
+        <div class="sb"><div class="sbl" id="LhSum">Прибуток</div><div class="sbv g" id="hSum">0</div></div>
+      </div>
+    </div>
+    <button class="btn br bsm" style="margin-bottom:11px" onclick="clearHist()" id="LclearHist">🗑 Очистити</button>
+    <div id="histList"></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+// ════ STATE ════
+let HD=JSON.parse(localStorage.getItem('vh')||'[]');
+let SRC=JSON.parse(localStorage.getItem('vs')||'[]');
+let ENB=JSON.parse(localStorage.getItem('vb')||'{}');
+let MKTS={h2h:true,totals:true,spreads:true};
+let lang=localStorage.getItem('vl')||'uk';
+let arbs=[],allBK=[],arbBK=[],fMode='all';
+let autoT=null,cdT=null,cdV=0;
+let rawEvts=null;
+let fromScan=null; // arb loaded into calc
+let liveOn=false,liveT=null,snapOdds={};
+
+// ════ TRANSLATIONS ════
+const TR={
+uk:{Ltag:'Арбітражний калькулятор ставок',Lbadge:'СИСТЕМА АКТИВНА',
+  TCalc:'📐 Калькулятор',TScan:'🔍 Сканер',TSrc:'🔌 Джерела',TTips:'💡 Поради',THist:'📊 Історія',
+  LcsTitle:'🔍 ПОШУК МАТЧУ',LcmTitle:'⚡ ДАНІ МАТЧУ',LcbTitle:'🏦 БУКМЕКЕРИ',LcstkTitle:'💰 СТАВКА',
+  LcalcBtn:'РОЗРАХУВАТИ ВИЛКУ',LmatchL:'Назва матчу',LtypeL:'Тип вилки',LcurL:'Валюта',LstkL:'Сума банку',
+  Lt2:'2 результати (П1/П2)',Lt2d:'2 рез. з нічиєю',Lt3:'3 результати (П1/X/П2)',Ltou:'Тотал Більше/Менше',
+  LsearchHint:'Введіть команду — знайдемо серед вилок або через API',
+  LliveTitle:'🔄 МОНІТОРИНГ КОЕФІЦІЄНТІВ',
+  LscanTitle:'🔍 АВТОСКАНЕР ВИЛОК',LnoKey:'⚠️ API ключ не налаштовано — додай у 🔌 Джерела',
+  LrefL:'Автооновлення:',LrOff:'Вимкнено',LsportL:'Вид спорту',LallEv:'🌍 Всі події (топ ліги)',
+  LminPL:'Мін. прибуток %',LmktL:'Тип ринку',LoddsF:'Фільтр коефіцієнтів',LminO:'Мін. коеф.',LmaxO:'Макс. коеф.',
+  LbkF:'Фільтр букмекерів',LscanEmpty:'Натисни СКАНУВАТИ щоб знайти вилки',LscanTxt:'СКАНУВАТИ',
+  LsrcTitle:'🔌 ДЖЕРЕЛА',LsrcInfo:'Додай API ключ від the-odds-api.com (500 запитів/міс безкоштовно). Кілька джерел = більше вилок.',
+  LaddSrc:'➕ ДОДАТИ ДЖЕРЕЛО',LactiveSrc:'Активні джерела',
+  LtipsTitle:'💡 ЯК ПРАЦЮЮТЬ ВИЛКИ',LtipsIntro:'Вилки — легальна математична стратегія.',LtipsWarn:'⚠️ БК можуть занижувати ліміти.',
+  LhistTitle:'📊 ІСТОРІЯ',LclearHist:'🗑 Очистити',LhTot:'Всього',LhProf:'Прибуткових',LhAvg:'Серед. %',LhSum:'Прибуток',
+  Lth1:'ФОРМУЛА',Ltt1:'Маржа=1/К1+1/К2. Вилка якщо маржа<1.',
+  Lth2:'ШВИДКІСТЬ',Ltt2:'5–10 хв можуть вбити вилку — ставь одразу.',
+  Lth3:'МАСКУВАННЯ',Ltt3:'Ставь не круглі суми. Роби паузи.',
+  Lth4:'БАНКРОЛ',Ltt4:'5–15% від банку на одну вилку.',
+  Lth5:'РІЗНІ БК',Ltt5:'Мінімум 5–7 різних букмекерів.',
+  Lth6:'АВТООНОВЛЕННЯ',Ltt6:'30–60 сек для актуальних коефіцієнтів.',
+  Lth7:'2 РЕЗУЛЬТАТИ',Ltt7:'2 результати у футболі = подвійний шанс або азіатський гандикап.',
+  Lth8:'ТОТАЛ',Ltt8:'Тотал-вилки: Більше в одному БК + Менше в іншому.',
+},
+ru:{Ltag:'Арбитражный калькулятор ставок',Lbadge:'СИСТЕМА АКТИВНА',
+  TCalc:'📐 Калькулятор',TScan:'🔍 Сканер',TSrc:'🔌 Источники',TTips:'💡 Советы',THist:'📊 История',
+  LcsTitle:'🔍 ПОИСК МАТЧА',LcmTitle:'⚡ ДАННЫЕ МАТЧА',LcbTitle:'🏦 БУКМЕКЕРЫ',LcstkTitle:'💰 СТАВКА',
+  LcalcBtn:'РАССЧИТАТЬ ВИЛКУ',LmatchL:'Название матча',LtypeL:'Тип вилки',LcurL:'Валюта',LstkL:'Сумма банка',
+  Lt2:'2 результата (П1/П2)',Lt2d:'2 рез. с ничьей',Lt3:'3 результата (П1/X/П2)',Ltou:'Тотал Больше/Меньше',
+  LsearchHint:'Введите команду — найдём среди вилок или через API',
+  LliveTitle:'🔄 МОНИТОРИНГ КОЭФФИЦИЕНТОВ',
+  LscanTitle:'🔍 АВТОСКАНЕР ВИЛОК',LnoKey:'⚠️ API ключ не настроен — добавь в 🔌 Источники',
+  LrefL:'Автообновление:',LrOff:'Выключено',LsportL:'Вид спорта',LallEv:'🌍 Все события (топ лиги)',
+  LminPL:'Мин. прибыль %',LmktL:'Тип рынка',LoddsF:'Фильтр коэффициентов',LminO:'Мин. коэф.',LmaxO:'Макс. коэф.',
+  LbkF:'Фильтр букмекеров',LscanEmpty:'Нажми СКАНИРОВАТЬ чтобы найти вилки',LscanTxt:'СКАНИРОВАТЬ',
+  LsrcTitle:'🔌 ИСТОЧНИКИ',LsrcInfo:'Добавь API ключ от the-odds-api.com (500 запросов/мес бесплатно). Несколько источников = больше вилок.',
+  LaddSrc:'➕ ДОБАВИТЬ ИСТОЧНИК',LactiveSrc:'Активные источники',
+  LtipsTitle:'💡 КАК РАБОТАЮТ ВИЛКИ',LtipsIntro:'Вилки — легальная математическая стратегия.',LtipsWarn:'⚠️ БК могут занижать лимиты.',
+  LhistTitle:'📊 ИСТОРИЯ',LclearHist:'🗑 Очистить',LhTot:'Всего',LhProf:'Прибыльных',LhAvg:'Средний %',LhSum:'Прибыль',
+  Lth1:'ФОРМУЛА',Ltt1:'Маржа=1/К1+1/К2. Вилка если маржа<1.',
+  Lth2:'СКОРОСТЬ',Ltt2:'5–10 мин могут убить вилку — ставь сразу.',
+  Lth3:'МАСКИРОВКА',Ltt3:'Ставь не круглые суммы. Делай паузы.',
+  Lth4:'БАНКРОЛЛ',Ltt4:'5–15% от банка на одну вилку.',
+  Lth5:'РАЗНЫЕ БК',Ltt5:'Минимум 5–7 разных букмекеров.',
+  Lth6:'АВТООБНОВЛЕНИЕ',Ltt6:'30–60 сек для актуальных коэффициентов.',
+  Lth7:'2 ИСХОДА',Ltt7:'2 исхода в футболе = двойной шанс или азиатский гандикап.',
+  Lth8:'ТОТАЛ',Ltt8:'Тотал-вилки: Больше в одном БК + Меньше в другом.',
+},
+en:{Ltag:'Arbitrage betting calculator',Lbadge:'SYSTEM ACTIVE',
+  TCalc:'📐 Calculator',TScan:'🔍 Scanner',TSrc:'🔌 Sources',TTips:'💡 Tips',THist:'📊 History',
+  LcsTitle:'🔍 MATCH SEARCH',LcmTitle:'⚡ MATCH DATA',LcbTitle:'🏦 BOOKMAKERS',LcstkTitle:'💰 STAKE',
+  LcalcBtn:'CALCULATE ARB',LmatchL:'Match name',LtypeL:'Arb type',LcurL:'Currency',LstkL:'Bankroll',
+  Lt2:'2 outcomes (H/A)',Lt2d:'2 outcomes + draw',Lt3:'3 outcomes (H/D/A)',Ltou:'Total Over/Under',
+  LsearchHint:'Type team name — search found arbs or API',
+  LliveTitle:'🔄 ODDS MONITOR',
+  LscanTitle:'🔍 AUTO ARB SCANNER',LnoKey:'⚠️ API key not set — add in 🔌 Sources',
+  LrefL:'Auto-refresh:',LrOff:'Off',LsportL:'Sport',LallEv:'🌍 All events (top leagues)',
+  LminPL:'Min profit %',LmktL:'Market type',LoddsF:'Odds filter',LminO:'Min odds',LmaxO:'Max odds',
+  LbkF:'Bookmaker filter',LscanEmpty:'Press SCAN to find arbs',LscanTxt:'SCAN',
+  LsrcTitle:'🔌 SOURCES',LsrcInfo:'Add API key from the-odds-api.com (500 req/month free). Multiple sources = more arbs.',
+  LaddSrc:'➕ ADD SOURCE',LactiveSrc:'Active sources',
+  LtipsTitle:'💡 HOW ARBS WORK',LtipsIntro:'Arb betting is legal math strategy.',LtipsWarn:'⚠️ Bookmakers may limit arb bettors.',
+  LhistTitle:'📊 HISTORY',LclearHist:'🗑 Clear',LhTot:'Total',LhProf:'Profitable',LhAvg:'Avg %',LhSum:'Profit',
+  Lth1:'FORMULA',Ltt1:'Margin=1/O1+1/O2. Arb if margin<1.',
+  Lth2:'SPEED',Ltt2:'5–10 min can kill an arb — bet immediately.',
+  Lth3:'MASKING',Ltt3:'Bet non-round amounts. Take breaks.',
+  Lth4:'BANKROLL',Ltt4:'5–15% of bankroll per arb is optimal.',
+  Lth5:'MULTIPLE BKS',Ltt5:'Use at least 5–7 different bookmakers.',
+  Lth6:'AUTO-REFRESH',Ltt6:'30–60 sec for up-to-date odds.',
+  Lth7:'2 OUTCOMES',Ltt7:'2 outcomes in soccer = double chance or Asian handicap.',
+  Lth8:'TOTALS',Ltt8:'Total arbs: Over at one BK + Under at another.',
+}};
+
+function L(k){return (TR[lang]||TR.uk)[k]||(TR.uk)[k]||k;}
+
+// FIX: setLang now correctly toggles .on class by index
+function setLang(l){
+  lang=l;
+  localStorage.setItem('vl',l);
+  const btns=document.querySelectorAll('.lb');
+  const order=['uk','ru','en'];
+  btns.forEach((b,i)=>b.classList.toggle('on',order[i]===l));
+  applyLang();
+}
+
+function applyLang(){
+  const ids=['Ltag','Lbadge','TCalc','TScan','TSrc','TTips','THist',
+    'LcsTitle','LcmTitle','LcbTitle','LcstkTitle','LcalcBtn','LmatchL','LtypeL','LcurL','LstkL',
+    'Lt2','Lt2d','Lt3','Ltou','LsearchHint','LliveTitle',
+    'LscanTitle','LnoKey','LrefL','LrOff','LsportL','LallEv','LminPL','LmktL',
+    'LoddsF','LminO','LmaxO','LbkF','LscanEmpty','LscanTxt',
+    'LsrcTitle','LsrcInfo','LaddSrc','LactiveSrc',
+    'LtipsTitle','LtipsIntro','LtipsWarn','LhistTitle','LclearHist',
+    'LhTot','LhProf','LhAvg','LhSum',
+    'Lth1','Ltt1','Lth2','Ltt2','Lth3','Ltt3','Lth4','Ltt4',
+    'Lth5','Ltt5','Lth6','Ltt6','Lth7','Ltt7','Lth8','Ltt8'];
+  ids.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){const v=L(id);if(v!==id)el.textContent=v;}
+  });
+  const ms=document.getElementById('matchSearch');
+  if(ms)ms.placeholder=lang==='en'?'Search match...':lang==='ru'?'Поиск матча...':'Пошук матчу...';
+  const ss=document.getElementById('scanQ');
+  if(ss)ss.placeholder=lang==='en'?'Search arbs...':lang==='ru'?'Поиск вилок...':'Пошук вилок...';
+}
+
+// ════ BK CONFIG ════
+const enc=s=>encodeURIComponent((s||'').trim());
+const BK={
+  betway:      {n:'Betway',      h:'https://www.betway.com',             s:(a,b)=>`https://www.betway.com/en/sport/search?q=${enc(a)}`},
+  unibet:      {n:'Unibet',      h:'https://www.unibet.com',             s:(a,b)=>`https://www.unibet.com/betting/sports/search?q=${enc(a)}+${enc(b)}`},
+  bet365:      {n:'Bet365',      h:'https://www.bet365.com',             s:(a,b)=>`https://www.bet365.com/#/AC/B1/C1/D8/E~${enc(a)}/`},
+  bwin:        {n:'Bwin',        h:'https://sports.bwin.com',            s:(a,b)=>`https://sports.bwin.com/en/sports/search?q=${enc(a)}`},
+  pinnacle:    {n:'Pinnacle',    h:'https://www.pinnacle.com',           s:(a,b)=>`https://www.pinnacle.com/en/search/${enc(a)}-${enc(b)}/`},
+  william_hill:{n:'William Hill',h:'https://www.williamhill.com',        s:(a,b)=>`https://www.williamhill.com/us/or/bet/sports#search?q=${enc(a)}`},
+  draftkings:  {n:'DraftKings',  h:'https://sportsbook.draftkings.com',  s:(a,b)=>`https://sportsbook.draftkings.com/search?q=${enc(a)}`},
+  fanduel:     {n:'FanDuel',     h:'https://sportsbook.fanduel.com',     s:(a,b)=>`https://sportsbook.fanduel.com/search?query=${enc(a)}`},
+  betfair:     {n:'Betfair',     h:'https://www.betfair.com',            s:(a,b)=>`https://www.betfair.com/sport/football/search?q=${enc(a)}`},
+  ladbrokes:   {n:'Ladbrokes',   h:'https://www.ladbrokes.com',          s:(a,b)=>`https://www.ladbrokes.com/sport/search?q=${enc(a)}`},
+  coral:       {n:'Coral',       h:'https://www.coral.co.uk',            s:(a,b)=>`https://www.coral.co.uk/en/sports/search?q=${enc(a)}`},
+  boylesports: {n:'BoyleSports', h:'https://www.boylesports.com',        s:(a,b)=>`https://www.boylesports.com/sports/search?q=${enc(a)}`},
+  paddy_power: {n:'Paddy Power', h:'https://www.paddypower.com',         s:(a,b)=>`https://www.paddypower.com/sport/search?q=${enc(a)}`},
+  betvictor:   {n:'BetVictor',   h:'https://www.betvictor.com',          s:(a,b)=>`https://www.betvictor.com/en-gb/sport/search?q=${enc(a)}`},
+  betsson:     {n:'Betsson',     h:'https://www.betsson.com',            s:(a,b)=>`https://www.betsson.com/en/sports/search?q=${enc(a)}`},
+  nordicbet:   {n:'NordicBet',   h:'https://www.nordicbet.com',          s:(a,b)=>`https://www.nordicbet.com/en/sports/search?q=${enc(a)}`},
+  coolbet:     {n:'Coolbet',     h:'https://www.coolbet.com',            s:(a,b)=>`https://www.coolbet.com/en/sports/search#q=${enc(a)}`},
+  '1xbet':     {n:'1xBet',       h:'https://1xbet.com',                  s:(a,b)=>`https://1xbet.com/en/live/search?query=${enc(a)}`},
+  fonbet:      {n:'Fonbet',      h:'https://www.fonbet.ru',              s:(a,b)=>`https://www.fonbet.ru/sports/search/?q=${enc(a)}`},
+  marathonbet: {n:'Marathonbet', h:'https://www.marathonbet.com',        s:(a,b)=>`https://www.marathonbet.com/en/search/?q=${enc(a)}`},
+  betclic:     {n:'Betclic',     h:'https://www.betclic.com',            s:(a,b)=>`https://www.betclic.com/en/sport-s1/search?search=${enc(a)}`},
+  mybookie:    {n:'MyBookie',    h:'https://mybookie.ag',                s:(a,b)=>`https://mybookie.ag/sportsbook/search?q=${enc(a)}`},
+  bovada:      {n:'Bovada',      h:'https://www.bovada.lv',              s:(a,b)=>`https://www.bovada.lv/search#${enc(a)}`},
+  betonlineag: {n:'BetOnline',   h:'https://www.betonline.ag',           s:(a,b)=>`https://www.betonline.ag/sportsbook/search?q=${enc(a)}`},
+  pointsbetus: {n:'PointsBet',   h:'https://www.pointsbet.com',          s:(a,b)=>`https://www.pointsbet.com/sports/search?q=${enc(a)}`},
+  barstool:    {n:'Barstool',    h:'https://www.barstoolsportsbook.com', s:(a,b)=>`https://www.barstoolsportsbook.com/search?q=${enc(a)}`},
+  betsson:     {n:'Betsson',     h:'https://www.betsson.com',            s:(a,b)=>`https://www.betsson.com/en/sports/search?q=${enc(a)}`},
+  wynnbet:     {n:'WynnBET',     h:'https://www.wynnbet.com',            s:(a,b)=>`https://www.wynnbet.com/search?q=${enc(a)}`},
+  lowvig:      {n:'LowVig',      h:'https://www.lowvig.ag',              s:(a,b)=>`https://www.lowvig.ag/search?q=${enc(a)}`},
+};
+function bkN(k){const c=BK[(k||'').toLowerCase().replace(/[^a-z0-9_]/g,'')]||BK[(k||'').toLowerCase().replace(/[^a-z0-9_]/g,'').split('_')[0]];return c?.n||k;}
+function bkH(k){const c=BK[(k||'').toLowerCase().replace(/[^a-z0-9_]/g,'')]||BK[(k||'').toLowerCase().replace(/[^a-z0-9_]/g,'').split('_')[0]];return c?.h||null;}
+function bkS(k,a,b){const c=BK[(k||'').toLowerCase().replace(/[^a-z0-9_]/g,'')]||BK[(k||'').toLowerCase().replace(/[^a-z0-9_]/g,'').split('_')[0]];return c?c.s(a,b):bkH(k);}
+
+// ════ SPORT META ════
+const SL={soccer_epl:'АПЛ',soccer_spain_la_liga:'Ла Ліга',soccer_germany_bundesliga:'Бундесліга',soccer_italy_serie_a:'Серія А',soccer_france_ligue_one:'Ліга 1',soccer_uefa_champs_league:'Ліга ЧМ',soccer_uefa_europa_league:'Ліга Євр.',basketball_nba:'NBA',basketball_euroleague:'Євроліга',basketball_ncaab:'NCAA',basketball_wnba:'WNBA',icehockey_nhl:'NHL',tennis_atp_french_open:'ATP РГ',americanfootball_nfl:'NFL',baseball_mlb:'MLB',mma_mixed_martial_arts:'MMA',boxing_boxing:'Бокс',cricket_ipl:'IPL',esports_csgo:'CS2',esports_dota2:'Dota2',esports_lol:'LoL',esports_valorant:'Valorant'};
+const SE={soccer:'⚽',basketball:'🏀',icehockey:'🏒',tennis:'🎾',americanfootball:'🏈',baseball:'⚾',rugbyleague:'🏉',rugbyunion:'🏉',mma:'🥊',boxing:'🥊',cricket:'🏏',esports:'🎮',golf:'⛳'};
+function sEmoji(k){const c=Object.keys(SE).find(x=>k.startsWith(x));return SE[c]||'🎯';}
+// Sports that support totals market
+const HAS_TOTALS=['basketball_nba','basketball_euroleague','basketball_ncaab','basketball_wnba','basketball_nbl','icehockey_nhl','icehockey_sweden_hockey_league','icehockey_finland_liiga','americanfootball_nfl','americanfootball_ncaaf','baseball_mlb'];
+const ALL_SPORTS=['soccer_epl','soccer_spain_la_liga','soccer_germany_bundesliga','soccer_italy_serie_a','soccer_france_ligue_one','soccer_uefa_champs_league','basketball_nba','basketball_euroleague','icehockey_nhl','americanfootball_nfl','baseball_mlb','tennis_atp_french_open','mma_mixed_martial_arts'];
+
+// ════ INIT ════
+function init(){
+  setLang(lang);
+  buildCalc();
+  renderHist();
+  renderSrcList();
+  renderKeyBlock();
+  const def=SRC.find(s=>s.id==='_def');
+  if(def?.key) document.getElementById('noKeyW').style.display='none';
+}
+
+// ════ TABS ════
+function go(id,el){
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('pane-'+id).classList.add('on');
+  el.classList.add('on');
+  if(id==='hist'){renderHist();}
+  if(id==='src'){renderSrcList();renderKeyBlock();}
+}
+
+// ════ CALCULATOR ════
+const CFGS={
+  '2': [{lbl:'П1 (Господарі)',bk:'БК №1',k:'k0'},{lbl:'П2 (Гості)',bk:'БК №2',k:'k1'}],
+  '2d':[{lbl:'П1',bk:'БК №1',k:'k0'},{lbl:'Х/П2',bk:'БК №2',k:'k1'}],
+  '3': [{lbl:'П1',bk:'БК №1',k:'k0'},{lbl:'X (Нічия)',bk:'БК №2',k:'k1'},{lbl:'П2',bk:'БК №3',k:'k2'}],
+  'ou':[{lbl:'Тотал Більше',bk:'БК №1',k:'k0'},{lbl:'Тотал Менше',bk:'БК №2',k:'k1'}],
+  '1x2ou':[{lbl:'П1',bk:'БК №1',k:'k0'},{lbl:'X',bk:'БК №2',k:'k1'},{lbl:'П2',bk:'БК №3',k:'k2'},{lbl:'Тотал Менше',bk:'БК №4',k:'k3'}],
+};
+function buildCalc(){
+  const cfg=CFGS[document.getElementById('cType').value];
+  let h='';
+  for(let i=0;i<cfg.length;i+=2){
+    const pair=cfg.slice(i,Math.min(i+2,cfg.length));
+    h+=`<div class="r2" style="margin-bottom:8px">`;
+    pair.forEach(c=>{
+      const idx=cfg.indexOf(c);
+      h+=`<div class="bkb"><div class="bkt">${c.lbl}</div>
+        <div class="fi"><label>БК</label><input type="text" id="bn${idx}" placeholder="${c.bk}" oninput="doCalc()"></div>
+        <div class="fi" style="margin-bottom:0"><label>Коефіцієнт</label><input type="number" id="${c.k}" placeholder="2.10" step="0.01" min="1.01" oninput="doCalc()"></div>
+      </div>`;
+    });
+    h+=`</div>`;
+  }
+  document.getElementById('bkIn').innerHTML=h;
+  document.getElementById('cResult').classList.remove('on');
+  document.getElementById('cResult').innerHTML='';
+}
+
+function doCalc(){
+  const cfg=CFGS[document.getElementById('cType').value];
+  const total=parseFloat(document.getElementById('cStake').value)||0;
+  const cur=document.getElementById('cCur').value;
+  const name=document.getElementById('cName').value||'Матч';
+  const legs=cfg.map((c,i)=>({...c,k:parseFloat(document.getElementById(c.k)?.value)||0,bkName:document.getElementById('bn'+i)?.value||c.bk}));
+  if(legs.some(l=>!l.k||l.k<1.01)||total<=0) return;
+
+  const margin=legs.reduce((s,l)=>s+1/l.k,0);
+  const pct=(1-margin)*100;
+  const isArb=margin<1;
+  const ret=total/margin;
+  const profit=ret-total;
+  const box=document.getElementById('cResult');
+  box.classList.add('on');
+  const safe=name.replace(/'/g,"\\'");
+
+  // Scan links panel
+  let scanLinksHTML='';
+  if(fromScan){
+    const a=fromScan;
+    const h1=a.home||'',h2=a.away||'';
+    scanLinksHTML=`<div style="margin-top:9px">
+      <div class="sl" style="margin-bottom:5px">🔗 Посилання на матч</div>
+      <div class="ml">
+        <a class="el ep" href="https://www.google.com/search?q=${enc(h1)}+vs+${enc(h2)}+${enc(a.league)}+odds" target="_blank">🔍 Google</a>
+        <a class="el" href="https://www.flashscore.com/search/?q=${enc(h1)}" target="_blank">⚡ Flashscore</a>
+        <a class="el" href="https://www.sofascore.com/search#${enc(h1)}%20${enc(h2)}" target="_blank">📊 Sofascore</a>
+        <a class="el ea" href="https://the-odds-api.com/sports/${a.sport}/events/${a.id}" target="_blank">📡 Odds API</a>
+      </div>
+      <div class="sl" style="margin-bottom:5px;margin-top:8px">🏦 БК</div>
+      <div class="ml">${a.legs.map(l=>{const sl=bkS(l.bkKey,h1,h2);return sl?`<a class="el" href="${sl}" target="_blank">🏦 ${bkN(l.bkKey)}</a>`:''}).filter(Boolean).join('')}</div>
+    </div>`;
+  }
+
+  box.innerHTML=`
+    <div class="rh ${isArb?'profit':'loss'}">
+      <div class="rp ${isArb?'profit':'loss'}">${Math.abs(pct).toFixed(2)}%</div>
+      <div class="rl">${isArb?'✅ ВИЛКУ ЗНАЙДЕНО — ГАРАНТОВАНИЙ ПРИБУТОК':'❌ ВИЛКИ НЕМАЄ — МАРЖА БУКМЕКЕРА'}</div>
+    </div>
+    <div class="sg">
+      <div class="sb"><div class="sbl">Загальна ставка</div><div class="sbv">${total.toFixed(2)} ${cur}</div></div>
+      <div class="sb"><div class="sbl">Гарантований повернення</div><div class="sbv ${isArb?'g':''}">${ret.toFixed(2)} ${cur}</div></div>
+      <div class="sb"><div class="sbl">${isArb?'Чистий прибуток':'Втрата'}</div><div class="sbv" style="color:${isArb?'var(--a)':'var(--r)'}">${isArb?'+':''}${profit.toFixed(2)} ${cur}</div></div>
+      <div class="sb"><div class="sbl">ROI</div><div class="sbv y">${pct.toFixed(2)}%</div></div>
+    </div>
+    <div class="sl" style="margin-bottom:6px">Розподіл ставок</div>
+    <div class="bg2">${legs.map(l=>`<div class="bb"><div class="bbl">${l.bkName}</div><div class="bbo">${l.lbl}</div><div class="bba">${(total/(l.k*margin)).toFixed(2)} ${cur}</div><div class="bbr">↩ ${ret.toFixed(2)} ${cur}</div></div>`).join('')}</div>
+    ${scanLinksHTML}
+    <button class="btn bg" style="margin-top:9px;font-size:12px" onclick="saveHist(${margin.toFixed(4)},${pct.toFixed(2)},${profit.toFixed(2)},${total},'${safe}','${cur}')">💾 Зберегти в історію</button>`;
+}
+
+// ════ MATCH SEARCH ════
+let sT=null;
+function doSearch(){
+  const q=(document.getElementById('matchSearch').value||'').trim().toLowerCase();
+  const drop=document.getElementById('sdrop');
+  if(q.length<2){drop.classList.remove('on');return;}
+  clearTimeout(sT);
+  sT=setTimeout(async()=>{
+    let items=arbs.filter(a=>a.match.toLowerCase().includes(q)).slice(0,8);
+    if(items.length<5){
+      const src=getSrcs()[0];
+      if(src){
+        try{
+          const sport=document.getElementById('sSport')?.value||'soccer_epl';
+          const sp=sport==='ALL'?'soccer_epl':sport;
+          const url=`https://api.the-odds-api.com/v4/sports/${sp}/odds/?apiKey=${src.key}&regions=eu&markets=h2h&oddsFormat=decimal`;
+          const prx=[u=>u,u=>`https://corsproxy.io/?${encodeURIComponent(u)}`,u=>`https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`];
+          let d=null;
+          for(const p of prx){try{const r=await fetch(p(url));if(r.ok){const x=await r.json();if(Array.isArray(x)){d=x;break;}}}catch(e){}}
+          if(d) d.filter(ev=>(ev.home_team+' '+ev.away_team).toLowerCase().includes(q)).slice(0,5).forEach(ev=>{
+            if(!items.find(a=>a.id===ev.id)) items.push({id:ev.id,match:`${ev.home_team} — ${ev.away_team}`,home:ev.home_team,away:ev.away_team,sport:sp,sportLabel:SL[sp]||sp,league:ev.sport_title||'',commenceTime:ev.commence_time,margin:1,pct:0,legs:[]});
+          });
+        }catch(e){}
+      }
+    }
+    if(!items.length){drop.innerHTML=`<div style="padding:9px 12px;font-size:12px;color:var(--m)">Нічого не знайдено</div>`;drop.classList.add('on');return;}
+    drop.innerHTML=items.map(a=>{
+      const ai=arbs.indexOf(a);
+      return `<div class="si" onclick="pickSearch(${ai},'${a.match.replace(/'/g,"\\'")}')">
+        <div class="sim">${sEmoji(a.sport||'')} ${a.match}</div>
+        <div style="display:flex;justify-content:space-between">
+          <div class="sit">${a.sportLabel||''} · ${a.league} · ${new Date(a.commenceTime).toLocaleDateString('uk')}</div>
+          ${a.pct>0.01?`<span class="sip">+${a.pct.toFixed(2)}%</span>`:''}
+        </div></div>`;
+    }).join('');
+    drop.classList.add('on');
+  },350);
+}
+function pickSearch(idx,name){
+  document.getElementById('sdrop').classList.remove('on');
+  document.getElementById('matchSearch').value='';
+  if(idx>=0&&arbs[idx]) loadToCalc(idx);
+  else document.getElementById('cName').value=name;
+}
+document.addEventListener('click',e=>{if(!e.target.closest('#matchSearch')&&!e.target.closest('#sdrop'))document.getElementById('sdrop')?.classList.remove('on');});
+
+// ════ LIVE ODDS MONITOR ════
+function toggleLive(){
+  if(!fromScan){alert('Спочатку відкрий вилку зі сканера');return;}
+  liveOn=!liveOn;
+  const btn=document.getElementById('liveBtn');
+  const status=document.getElementById('liveStatus');
+  if(liveOn){
+    // Snapshot current odds
+    snapOdds={};
+    const cfg=CFGS[document.getElementById('cType').value];
+    cfg.forEach((c,i)=>{const k=parseFloat(document.getElementById(c.k)?.value)||0;if(k)snapOdds[i]={bk:document.getElementById('bn'+i)?.value||'',k,lbl:c.lbl};});
+    btn.textContent='⏹ Зупинити';
+    status.textContent='Моніторинг активний...';
+    document.getElementById('ocPanel').classList.add('on');
+    liveT=setInterval(checkLiveOdds,15000);
+    checkLiveOdds();
+  } else {
+    liveOn=false;
+    clearInterval(liveT);
+    btn.textContent='▶ Тримати';
+    status.textContent='';
+    document.getElementById('ocPanel').classList.remove('on');
+  }
+}
+
+async function checkLiveOdds(){
+  if(!fromScan||!liveOn) return;
+  const a=fromScan;
+  const src=getSrcs()[0];
+  if(!src) return;
+  const url=`https://api.the-odds-api.com/v4/sports/${a.sport}/odds/?apiKey=${src.key}&regions=eu,uk,us&markets=h2h&oddsFormat=decimal`;
+  const prx=[u=>u,u=>`https://corsproxy.io/?${encodeURIComponent(u)}`];
+  let data=null;
+  for(const p of prx){try{const r=await fetch(p(url));if(r.ok){const d=await r.json();if(Array.isArray(d)){data=d;break;}}}catch(e){}}
+  if(!data) return;
+
+  const ev=data.find(e=>e.id===a.id);
+  if(!ev) return;
+
+  // Build current best odds
+  const outMap={};
+  ev.bookmakers?.forEach(bk=>{
+    const m=bk.markets?.find(m=>m.key==='h2h');
+    if(!m) return;
+    m.outcomes.forEach(o=>{if(!outMap[o.name]||o.price>outMap[o.name].price)outMap[o.name]={price:o.price,bk:bk.title,bkKey:bk.key};});
+  });
+
+  const rows=document.getElementById('ocRows');
+  const actions=document.getElementById('ocActions');
+  let changed=false;
+  let html='';
+  let newLegs=[];
+
+  a.legs.forEach((leg,i)=>{
+    const cur=outMap[leg.name];
+    const snap=snapOdds[i];
+    if(!cur||!snap) return;
+    const diff=cur.price-snap.k;
+    const diffPct=((diff/snap.k)*100).toFixed(1);
+    newLegs.push({...leg,price:cur.price,bk:cur.bk,bkKey:cur.bkKey});
+    if(Math.abs(diff)>0.005){
+      changed=true;
+      const up=diff>0;
+      html+=`<div class="oc-row">
+        <div>
+          <div style="font-weight:600">${leg.name}</div>
+          <div style="font-size:10px;color:var(--m)">${cur.bk}</div>
+        </div>
+        <div style="text-align:right">
+          <div><span class="oc-old">${snap.k.toFixed(3)}</span> → <span class="oc-new" style="color:${up?'var(--a)':'var(--r)'}">${cur.price.toFixed(3)}</span></div>
+          <div style="font-size:10px;color:${up?'var(--a)':'var(--r)'}">${up?'+':''}${diffPct}%</div>
+        </div>
+      </div>`;
+    }
+  });
+
+  if(changed){
+    // Recalculate new arb
+    const newMargin=newLegs.reduce((s,l)=>s+1/l.price,0);
+    const newPct=(1-newMargin)*100;
+    rows.innerHTML=html+`<div style="margin-top:7px;padding-top:7px;border-top:1px solid var(--b)">
+      <div style="font-size:12px;font-weight:600;color:${newPct>0?'var(--a)':'var(--r)'}">${newPct>0?'✅ Вилка ще є':'⚠️ Вилка зникла'} → ${newPct.toFixed(2)}%</div>
+    </div>`;
+    actions.innerHTML=newPct>0
+      ?`<button class="btn bp bsm" onclick="applyNewOdds()">✅ Застосувати нові коефіцієнти</button>`
+      :`<div style="font-size:11px;color:var(--r)">⚠️ Вилка стала невигідною. Перевір умови ставок перед тим як ставити.</div>`;
+    // Store new legs for apply
+    window._newLiveLegs=newLegs;
+  } else {
+    rows.innerHTML=`<div style="font-size:11px;color:var(--a);padding:6px 0">✅ Коефіцієнти не змінились</div>`;
+    actions.innerHTML='';
+  }
+}
+
+function applyNewOdds(){
+  if(!window._newLiveLegs) return;
+  const cfg=CFGS[document.getElementById('cType').value];
+  window._newLiveLegs.forEach((l,i)=>{
+    const bn=document.getElementById('bn'+i);
+    const ki=document.getElementById('k'+i);
+    if(bn)bn.value=bkN(l.bkKey)||l.bk;
+    if(ki)ki.value=l.price.toFixed(3);
+    if(snapOdds[i]) snapOdds[i].k=l.price;
+  });
+  doCalc();
+  document.getElementById('ocActions').innerHTML=`<div style="font-size:11px;color:var(--a)">✅ Коефіцієнти оновлено</div>`;
+}
+
+// ════ SCANNER ════
+function getSrcs(){return SRC.filter(s=>s.key&&s.key.length>5);}
+
+function toggleMkt(mkt,el){
+  MKTS[mkt]=!MKTS[mkt];
+  el.classList.toggle('on',MKTS[mkt]);
+}
+
+// Markets to fetch based on sport
+function getMarkets(sport){
+  let mkts=[];
+  if(MKTS.h2h) mkts.push('h2h');
+  if(MKTS.totals&&HAS_TOTALS.some(s=>sport.startsWith(s.split('_')[0])||sport===s)) mkts.push('totals');
+  if(MKTS.spreads) mkts.push('spreads');
+  return mkts.join(',');
+}
+
+async function fetchSport(src,sport){
+  const mkts=getMarkets(sport)||'h2h';
+  const url=`https://api.the-odds-api.com/v4/sports/${sport}/odds/?apiKey=${src.key}&regions=eu,uk,us&markets=${mkts}&oddsFormat=decimal`;
+  const prx=[u=>u,u=>`https://corsproxy.io/?${encodeURIComponent(u)}`,u=>`https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`];
+  for(const p of prx){
+    try{const r=await fetch(p(url));if(!r.ok)continue;const d=await r.json();if(Array.isArray(d))return d;}catch(e){}
+  }
+  return null;
+}
+
+async function doScan(){
+  const srcs=getSrcs();
+  if(!srcs.length){alert(L('LnoKey'));return;}
+  const sportSel=document.getElementById('sSport').value;
+  const sports=sportSel==='ALL'?ALL_SPORTS:[sportSel];
+  const btn=document.getElementById('scanBtn');
+  btn.disabled=true;btn.innerHTML='<span class="spin">⟳</span>';
+  setProg(true,'Завантаження...',5);
+
+  try{
+    const merged=[];const seen=new Set();
+    let total=sports.length*srcs.length;let done=0;
+    for(const sport of sports){
+      for(const src of srcs){
+        setProg(true,`${sport} / ${src.name}...`,5+Math.round(done/total*80));
+        const d=await fetchSport(src,sport);
+        if(d) d.forEach(ev=>{
+          // Tag event with sport
+          ev._sport=sport;
+          if(!seen.has(ev.id+sport)){seen.add(ev.id+sport);merged.push(ev);}
+        });
+        done++;
+      }
+    }
+    if(!merged.length) throw new Error('Дані не отримано. Перевір API ключ.');
+
+    rawEvts=merged;
+    setProg(true,'Шукаємо вилки...',88);
+
+    const bkSet=new Set();
+    merged.forEach(ev=>ev.bookmakers?.forEach(b=>bkSet.add(b.key)));
+    allBK=[...bkSet];
+
+    // Find ALL positive arbs across all markets
+    arbs=findAllArbs(merged);
+    arbBK=[...new Set(arbs.flatMap(a=>a.legs.map(l=>l.bkKey)))];
+
+    setProg(false,'',100);
+    renderBkFilter();
+    refilter();
+    setSrcStatus('ok');
+    document.getElementById('noKeyW').style.display='none';
+    document.getElementById('rStat').textContent=new Date().toLocaleTimeString('uk',{hour:'2-digit',minute:'2-digit'});
+  }catch(e){
+    setProg(false,'',0);
+    document.getElementById('scanOut').innerHTML=`<div class="al ale">❌ ${e.message}<hr style="border-color:rgba(255,51,102,.2);margin:7px 0"><div style="font-size:10px;line-height:1.8">1. Перевір API ключ у 🔌 Джерела<br>2. Відкрий файл у Chrome/Safari напряму (не через Claude)<br>3. Скачай файл → подвійний клік</div></div>`;
+    setSrcStatus('err');
+  }
+  btn.disabled=false;btn.innerHTML=`▶ ${L('LscanTxt')}`;
+}
+
+function findAllArbs(events){
+  const minO=parseFloat(document.getElementById('fMin')?.value)||1.01;
+  const maxO=parseFloat(document.getElementById('fMax')?.value)||1000;
+  const results=[];
+
+  events.forEach(ev=>{
+    const sport=ev._sport||'unknown';
+    const bks=ev.bookmakers||[];
+
+    // Collect all markets available
+    const marketKeys=new Set();
+    bks.forEach(bk=>bk.markets?.forEach(m=>marketKeys.add(m.key)));
+
+    // Process each market separately to find arbs
+    marketKeys.forEach(mkt=>{
+      if(!MKTS.h2h&&mkt==='h2h') return;
+      if(!MKTS.totals&&mkt==='totals') return;
+      if(!MKTS.spreads&&mkt==='spreads') return;
+
+      const outMap={};
+      bks.forEach(bk=>{
+        const m=bk.markets?.find(x=>x.key===mkt);
+        if(!m) return;
+        m.outcomes.forEach(o=>{
+          const p=o.price;
+          if(p<minO||p>maxO) return;
+          const key=o.name+(o.point!==undefined?'_'+o.point:'');
+          if(!outMap[key]||p>outMap[key].price)
+            outMap[key]={price:p,name:o.name,point:o.point,bk:bk.title,bkKey:bk.key};
+        });
+      });
+
+      // For totals/spreads find matching pairs (Over/Under, +X/-X)
+      let pairs=[];
+      if(mkt==='h2h'){
+        // All outcomes form one bet
+        const legs=Object.values(outMap);
+        if(legs.length>=2) pairs=[legs];
+      } else if(mkt==='totals'){
+        // Group by point value, find Over+Under pairs
+        const byPoint={};
+        Object.values(outMap).forEach(o=>{
+          const pt=o.point||'';
+          if(!byPoint[pt]) byPoint[pt]=[];
+          byPoint[pt].push(o);
+        });
+        Object.values(byPoint).forEach(group=>{
+          const over=group.find(x=>x.name.toLowerCase().includes('over'));
+          const under=group.find(x=>x.name.toLowerCase().includes('under'));
+          if(over&&under) pairs.push([over,under]);
+        });
+      } else if(mkt==='spreads'){
+        // Group by point, find home+away
+        const byPoint={};
+        Object.values(outMap).forEach(o=>{
+          const pt=o.point||'';
+          if(!byPoint[pt]) byPoint[pt]=[];
+          byPoint[pt].push(o);
+        });
+        Object.values(byPoint).forEach(group=>{
+          if(group.length>=2) pairs.push(group.slice(0,2));
+        });
+      }
+
+      pairs.forEach(legs=>{
+        if(legs.length<2) return;
+        const margin=legs.reduce((s,l)=>s+1/l.price,0);
+        const pct=(1-margin)*100;
+        if(pct<=0) return; // Only positive arbs!
+
+        const isSoccer=sport.startsWith('soccer');
+        let reason='';
+        if(isSoccer&&legs.length===2&&mkt==='h2h'){
+          const hasDraw=bks.some(bk=>bk.markets?.find(m=>m.key==='h2h')?.outcomes?.some(o=>o.name==='Draw'||o.name==='X'));
+          reason=hasDraw?'Нічия відфільтрована (поза діапазоном коеф.)':'БК пропонує 2 результати (подвійний шанс/азіатський гандикап)';
+        }
+
+        const isTotalArb=mkt==='totals';
+        const isSpreadArb=mkt==='spreads';
+
+        results.push({
+          id:ev.id,
+          match:`${ev.home_team} — ${ev.away_team}`,
+          home:ev.home_team,away:ev.away_team,
+          sport,sportLabel:SL[sport]||sport,
+          league:ev.sport_title||sport,
+          commenceTime:ev.commence_time,
+          margin,pct,legs,reason,
+          market:mkt,isTotalArb,isSpreadArb,
+        });
+      });
+    });
+  });
+
+  // Sort by pct descending, dedupe same event+market
+  return results.sort((a,b)=>b.pct-a.pct);
+}
+
+function refilter(){
+  if(!rawEvts){return;}
+  arbs=findAllArbs(rawEvts);
+  arbBK=[...new Set(arbs.flatMap(a=>a.legs.map(l=>l.bkKey)))];
+  renderBkFilter();
+
+  const minP=parseFloat(document.getElementById('sMinP').value)||0;
+  const q=(document.getElementById('scanQ')?.value||'').toLowerCase().trim();
+  const active=getActBKs();
+
+  const res=arbs.filter(a=>{
+    if(a.pct<minP) return false;
+    if(active.length&&!a.legs.some(l=>active.includes(l.bkKey))) return false;
+    if(q&&!a.match.toLowerCase().includes(q)) return false;
+    return true;
+  });
+  renderScanOut(res);
+}
+
+function resetF(){
+  document.getElementById('fMin').value='1.01';
+  document.getElementById('fMax').value='50';
+  refilter();
+}
+
+function getActBKs(){
+  const src=fMode==='arb'?arbBK:allBK;
+  return src.filter(b=>ENB[b]!==false);
+}
+
+function renderScanOut(res){
+  const el=document.getElementById('scanOut');
+  if(!res.length){el.innerHTML=`<div class="empty"><div class="ei">🔎</div>${L('LscanEmpty')}</div>`;return;}
+  el.innerHTML=`<div class="sc">Знайдено вилок: <span>${res.length}</span> · за прибутком ↓</div>${res.map((a,i)=>arbCard(a,i)).join('')}`;
+}
+
+function arbCard(a,i){
+  const dt=new Date(a.commenceTime);
+  const dtStr=dt.toLocaleDateString('uk',{day:'2-digit',month:'short'})+' '+dt.toLocaleTimeString('uk',{hour:'2-digit',minute:'2-digit'});
+  const emoji=sEmoji(a.sport);
+  const h1=a.home||'',h2=a.away||'';
+  const total=parseFloat(document.getElementById('cStake')?.value)||10000;
+  const cur=document.getElementById('cCur')?.value||'₴';
+
+  const legTags=a.legs.map(l=>{
+    const lbl=l.point!==undefined?`${l.name} ${l.point}`:l.name;
+    return `<div class="lg"><span class="lbk">${bkN(l.bkKey)}</span><span style="color:var(--m);margin:0 3px">→</span><span class="lo">${lbl}</span><span style="margin:0 3px;color:var(--m)">|</span><span class="lk">${l.price.toFixed(2)}</span></div>`;
+  }).join('');
+
+  const instrHTML=a.legs.map((l,idx)=>{
+    const stake=(total/(l.price*a.margin)).toFixed(2);
+    const ret=(total/a.margin).toFixed(2);
+    const sl=bkS(l.bkKey,h1,h2);
+    const hl=bkH(l.bkKey);
+    const nm=bkN(l.bkKey);
+    const lbl=l.point!==undefined?`${l.name} ${l.point}`:l.name;
+    return `<div class="bi"><div class="bin">${idx+1}</div><div class="bib">
+      <div class="bibk">📍 ${nm}</div>
+      <div class="bibo">Ставити на: <strong>${lbl}</strong></div>
+      <div class="biba">${stake} ${cur}</div>
+      <div class="bibk2">Коеф: ${l.price.toFixed(3)} · Повернення: ${ret} ${cur}</div>
+      <div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:3px">
+        ${sl?`<a class="bl" href="${sl}" target="_blank">🎯 Матч на ${nm} ↗</a>`:''}
+        ${hl?`<a class="bl" href="${hl}" target="_blank">🏠 ${nm} ↗</a>`:''}
+      </div>
+    </div></div>`;
+  }).join('');
+
+  const apiLink=`https://the-odds-api.com/sports/${a.sport}/events/${a.id}`;
+  const matchLinks=`<div class="ml">
+    <a class="el ep" href="https://www.google.com/search?q=${enc(h1)}+vs+${enc(h2)}+${enc(a.league)}+odds" target="_blank">🔍 Google</a>
+    <a class="el" href="https://www.flashscore.com/search/?q=${enc(h1)}" target="_blank">⚡ Flashscore</a>
+    <a class="el" href="https://www.sofascore.com/search#${enc(h1)}%20${enc(h2)}" target="_blank">📊 Sofascore</a>
+    <a class="el" href="https://www.espn.com/search/_/q/${enc(h1)}%20${enc(h2)}" target="_blank">🏟 ESPN</a>
+    <a class="el ea" href="${apiLink}" target="_blank">📡 Odds API</a>
+  </div>`;
+  const bkLinks=a.legs.map(l=>{const sl=bkS(l.bkKey,h1,h2);return sl?`<a class="el" href="${sl}" target="_blank">🏦 ${bkN(l.bkKey)}</a>`:''}).filter(Boolean).join('');
+
+  return `<div class="ac" onclick="toggleCard('ac${i}')">
+    <div class="at">
+      <div class="am">${emoji} ${a.match}</div>
+      <div class="ap">+${a.pct.toFixed(2)}%</div>
+    </div>
+    <div class="meta">
+      <span class="mt mts">${a.sportLabel}</span>
+      <span class="mt mtl">${a.league}</span>
+      <span class="mt mtt">🕐 ${dtStr}</span>
+      <span class="mt mtr">📡 API</span>
+      ${a.isTotalArb?'<span class="mt mttotal">📊 ТОТАЛ</span>':''}
+      ${a.isSpreadArb?'<span class="mt mttotal">📐 ФОРА</span>':''}
+      ${a.reason?`<span class="mt mtp">ℹ️ ${a.reason}</span>`:''}
+    </div>
+    <div class="legs">${legTags}</div>
+    <div class="ah">▼ Натисни щоб відкрити деталі</div>
+    <div class="ad" id="ac${i}">
+      <div class="mh">
+        <div class="mt2">
+          <div class="tb">
+            <div class="tl"><img src="https://ui-avatars.com/api/?name=${enc(h1)}&background=13131e&color=00ff88&size=44&bold=true&length=2" onerror="this.parentNode.textContent='${h1.slice(0,2).toUpperCase()}'"></div>
+            <div class="tn">${h1}</div>
+          </div>
+          <div class="vs">VS</div>
+          <div class="tb">
+            <div class="tl"><img src="https://ui-avatars.com/api/?name=${enc(h2)}&background=13131e&color=ffcc00&size=44&bold=true&length=2" onerror="this.parentNode.textContent='${h2.slice(0,2).toUpperCase()}'"></div>
+            <div class="tn">${h2}</div>
+          </div>
+        </div>
+        <div style="text-align:center;font-size:10px;color:var(--m)">${a.league} · ${dtStr}</div>
+      </div>
+      <div class="sl" style="margin-bottom:6px">🎯 Куди і скільки ставити</div>
+      ${instrHTML}
+      <div class="sl" style="margin-bottom:5px;margin-top:10px">🔗 Посилання на матч</div>
+      ${matchLinks}
+      ${bkLinks?`<div class="sl" style="margin-bottom:5px;margin-top:8px">🏦 БК</div><div class="ml">${bkLinks}</div>`:''}
+      <div style="display:flex;gap:5px;margin-top:10px;flex-wrap:wrap">
+        <button class="btn bp bsm" onclick="event.stopPropagation();loadToCalc(${i})">📐 Калькулятор</button>
+        <button class="btn bg bsm" onclick="event.stopPropagation();saveFromScan(${i})">💾 В історію</button>
+        <button class="btn bg bsm" onclick="event.stopPropagation();copyArb(${i})">📋 Копіювати</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function toggleCard(id){document.getElementById(id)?.classList.toggle('on');}
+
+function loadToCalc(idx){
+  const a=arbs[idx];if(!a) return;
+  fromScan=a;
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('pane-calc').classList.add('on');
+  document.querySelector('.tab').classList.add('on');
+  document.getElementById('cName').value=a.match;
+
+  // Set correct type
+  if(a.isTotalArb) document.getElementById('cType').value='ou';
+  else document.getElementById('cType').value=a.legs.length>=3?'3':'2';
+  buildCalc();
+
+  // Show scan info panel
+  const h1=a.home||'',h2=a.away||'';
+  document.getElementById('scanInfoPanel').style.display='block';
+  document.getElementById('scanInfoContent').innerHTML=`
+    <div class="meta" style="margin-bottom:7px">
+      <span class="mt mts">${a.sportLabel}</span>
+      <span class="mt mtl">${a.league}</span>
+      <span class="mt" style="background:rgba(0,255,136,.08);color:var(--a);border:1px solid rgba(0,255,136,.2)">+${a.pct.toFixed(2)}%</span>
+      ${a.isTotalArb?'<span class="mt mttotal">📊 ТОТАЛ</span>':''}
+      ${a.reason?`<span class="mt mtp">ℹ️ ${a.reason}</span>`:''}
+    </div>
+    <div class="ml">
+      <a class="el ep" href="https://www.google.com/search?q=${enc(h1)}+vs+${enc(h2)}+odds" target="_blank">🔍 Google</a>
+      <a class="el" href="https://www.flashscore.com/search/?q=${enc(h1)}" target="_blank">⚡ Flashscore</a>
+      <a class="el ea" href="https://the-odds-api.com/sports/${a.sport}/events/${a.id}" target="_blank">📡 Odds API</a>
+    </div>
+    <div class="ml" style="margin-top:5px">${a.legs.map(l=>{const sl=bkS(l.bkKey,h1,h2);return sl?`<a class="el" href="${sl}" target="_blank">🏦 ${bkN(l.bkKey)}</a>`:''}).filter(Boolean).join('')}</div>`;
+
+  // Show live panel
+  document.getElementById('livePanel').style.display='block';
+
+  setTimeout(()=>{
+    a.legs.forEach((l,i)=>{
+      const bn=document.getElementById('bn'+i);
+      const ki=document.getElementById('k'+i);
+      if(bn)bn.value=bkN(l.bkKey)||l.bk;
+      if(ki)ki.value=l.price.toFixed(3);
+    });
+    doCalc();
+  },100);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function copyArb(idx){
+  const a=arbs[idx];if(!a)return;
+  const txt=`ВИЛКА: ${a.match}\n${a.sportLabel} / ${a.league}\n${new Date(a.commenceTime).toLocaleString('uk')}\nПрибуток: +${a.pct.toFixed(2)}%\n${a.isTotalArb?'Ринок: Тотал\n':''}${a.reason?'Примітка: '+a.reason+'\n':''}\n`+a.legs.map(l=>`• ${bkN(l.bkKey)}: ${l.name}${l.point!==undefined?' '+l.point:''} @ ${l.price.toFixed(3)}`).join('\n');
+  navigator.clipboard.writeText(txt).then(()=>alert('✅ Скопійовано!')).catch(()=>alert(txt));
+}
+
+function saveFromScan(idx){
+  const a=arbs[idx];if(!a)return;
+  const total=parseFloat(document.getElementById('cStake')?.value)||10000;
+  const cur=document.getElementById('cCur')?.value||'₴';
+  const profit=total/a.margin-total;
+  saveHist(a.margin,a.pct,profit,total,a.match,cur,a);
+}
+
+function clearScan(){
+  arbs=[];allBK=[];arbBK=[];rawEvts=null;
+  document.getElementById('scanOut').innerHTML=`<div class="empty"><div class="ei">🔭</div>${L('LscanEmpty')}</div>`;
+  document.getElementById('bkGrid').innerHTML=`<div style="font-size:11px;color:var(--m);padding:4px">Запусти сканування</div>`;
+}
+
+function setProg(show,txt,pct){
+  document.getElementById('scanProg').style.display=show?'block':'none';
+  document.getElementById('scanProgT').textContent=txt;
+  document.getElementById('scanProgF').style.width=pct+'%';
+}
+
+// ════ AUTO REFRESH ════
+function setAutoRef(){
+  clearInterval(autoT);clearInterval(cdT);
+  cdV=parseInt(document.getElementById('refSel').value)||0;
+  const dot=document.getElementById('rdot'),cd=document.getElementById('rcd');
+  if(!cdV){dot.classList.remove('on');cd.textContent='';return;}
+  dot.classList.add('on');
+  function tick(){cd.textContent=cdV+'s';if(cdV<=0){doScan();cdV=parseInt(document.getElementById('refSel').value)||60;}cdV--;}
+  tick();cdT=setInterval(tick,1000);
+}
+
+// ════ BK FILTER ════
+function setFM(m){
+  fMode=m;
+  document.getElementById('ftAll').classList.toggle('on',m==='all');
+  document.getElementById('ftArb').classList.toggle('on',m==='arb');
+  renderBkFilter();refilter();
+}
+function renderBkFilter(){
+  const grid=document.getElementById('bkGrid');
+  const src=fMode==='arb'?arbBK:allBK;
+  if(!src.length){grid.innerHTML=`<div style="font-size:11px;color:var(--m);padding:4px">Запусти сканування</div>`;return;}
+  grid.innerHTML=src.map(bk=>{
+    const on=ENB[bk]!==false;
+    const ha=arbBK.includes(bk);
+    const cnt=arbs.filter(a=>a.legs.some(l=>l.bkKey===bk)).length;
+    return `<div class="bkc ${on?'on':''} ${ha?'ha':''}" id="chip_${bk}" onclick="togBk('${bk}',this)">
+      <div class="cd"></div>${bkN(bk)||bk}${ha&&cnt?`<span class="cc">${cnt}</span>`:''}
+    </div>`;
+  }).join('');
+}
+function togBk(bk,el){
+  ENB[bk]=ENB[bk]===false?true:false;
+  el.classList.toggle('on',ENB[bk]!==false);
+  localStorage.setItem('vb',JSON.stringify(ENB));
+  refilter();
+}
+function selBks(v){
+  const src=fMode==='arb'?arbBK:allBK;
+  src.forEach(bk=>{ENB[bk]=v;const el=document.getElementById('chip_'+bk);if(el)el.classList.toggle('on',v);});
+  localStorage.setItem('vb',JSON.stringify(ENB));
+  refilter();
+}
+
+// ════ SOURCES ════
+function renderKeyBlock(){
+  const el=document.getElementById('keysBlock');if(!el)return;
+  const srcs=getSrcs();
+  if(!srcs.length){
+    el.innerHTML=keyRowHTML({id:'_def',name:'The Odds API',url:'https://api.the-odds-api.com/v4',key:'',status:'idle'},true);
+    return;
+  }
+  el.innerHTML=srcs.map(s=>keyRowHTML(s,s.id==='_def')).join('');
+}
+
+function keyRowHTML(s,isDef){
+  return `<div class="sri" id="kr_${s.id}">
+    <div class="srn">${isDef?'⭐ ':''}<strong>${s.name||'The Odds API'}</strong></div>
+    <div class="sru">${s.url||'https://api.the-odds-api.com/v4'}</div>
+    <div class="srb">
+      <input type="password" id="ki_${s.id}" placeholder="Вставте API ключ..." value="${s.key||''}">
+      <button class="btn bp bsm" onclick="saveKeyFor('${s.id}')">💾</button>
+      ${!isDef?`<button class="btn br bxs" onclick="removeSrc('${s.id}')">✕</button>`:''}
+    </div>
+    <div id="ks_${s.id}"></div>
+  </div>`;
+}
+
+function saveKeyFor(id){
+  const inp=document.getElementById('ki_'+id);if(!inp)return;
+  const key=inp.value.trim();
+  if(!key){showKS(id,'ale','❌ Ключ порожній');return;}
+  let s=SRC.find(x=>x.id===id);
+  if(s){s.key=key;s.status='ok';}
+  else SRC.push({id,name:'The Odds API',url:'https://api.the-odds-api.com/v4',key,status:'ok'});
+  // Also ensure _def exists
+  if(id==='_def'){
+    const def=SRC.find(x=>x.id==='_def');
+    if(!def) SRC.push({id:'_def',name:'The Odds API',url:'https://api.the-odds-api.com/v4',key,status:'ok'});
+    else def.key=key;
+  }
+  localStorage.setItem('vs',JSON.stringify(SRC));
+  showKS(id,'ali','✅ Ключ збережено!');
+  document.getElementById('noKeyW').style.display='none';
+  renderSrcList();
+  setTimeout(()=>{const el=document.getElementById('ks_'+id);if(el)el.innerHTML='';},3000);
+}
+
+function showKS(id,cls,msg){
+  const el=document.getElementById('ks_'+id);
+  if(el)el.innerHTML=`<div class="al ${cls}" style="margin-top:5px;margin-bottom:0">${msg}</div>`;
+}
+
+function addKeyRow(){
+  const id='s'+Date.now();
+  SRC.push({id,name:'Додаткове джерело',url:'https://api.the-odds-api.com/v4',key:'',status:'idle'});
+  localStorage.setItem('vs',JSON.stringify(SRC));
+  const block=document.getElementById('keysBlock');
+  if(block){const d=document.createElement('div');d.innerHTML=keyRowHTML({id,name:'Додаткове джерело',url:'https://api.the-odds-api.com/v4',key:'',status:'idle'},false);block.appendChild(d.firstElementChild);}
+}
+
+function removeSrc(id){
+  if(!confirm('Видалити?'))return;
+  SRC=SRC.filter(s=>s.id!==id);
+  localStorage.setItem('vs',JSON.stringify(SRC));
+  const el=document.getElementById('kr_'+id);if(el)el.remove();
+  renderSrcList();
+}
+function setSrcStatus(st){const s=SRC.find(s=>s.id==='_def');if(s){s.status=st;localStorage.setItem('vs',JSON.stringify(SRC));}}
+function renderSrcList(){
+  const el=document.getElementById('srcList');if(!el)return;
+  const srcs=getSrcs();
+  if(!srcs.length){el.innerHTML=`<div style="font-size:12px;color:var(--m);padding:7px">Немає активних джерел</div>`;return;}
+  el.innerHTML=srcs.map(s=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:var(--s);border:1px solid var(--b);border-radius:9px;margin-bottom:6px"><div><div style="font-size:13px;font-weight:600">${s.id==='_def'?'⭐ ':''}${s.name}</div><div style="font-size:10px;color:var(--m)">${s.url} · ${s.key?'••••'+s.key.slice(-4):'—'}</div></div><span class="ssb ${s.status==='ok'?'ok':s.status==='err'?'err':'idle'}">${s.status==='ok'?'OK':s.status==='err'?'ERR':'?'}</span></div>`).join('');
+}
+
+// ════ HISTORY ════
+function saveHist(margin,pct,profit,total,name,cur,arbObj){
+  HD.unshift({id:Date.now(),match:name,date:new Date().toLocaleString('uk'),margin,pct,profit,total,currency:cur||'₴',isArb:margin<1,arbObj:arbObj||null});
+  localStorage.setItem('vh',JSON.stringify(HD));
+  alert('✅ Збережено!');
+}
+
+function renderHist(){
+  const list=document.getElementById('histList');
+  const stats=document.getElementById('histStats');
+  if(!HD.length){list.innerHTML=`<div class="empty"><div class="ei">📭</div>Історія порожня</div>`;stats.style.display='none';return;}
+  stats.style.display='block';
+  const prof=HD.filter(h=>h.isArb);
+  const sumP=HD.reduce((s,h)=>s+(h.isArb?h.profit:0),0);
+  const avg=prof.length?prof.reduce((s,h)=>s+h.pct,0)/prof.length:0;
+  const cur=HD[0]?.currency||'₴';
+  document.getElementById('hTot').textContent=HD.length;
+  document.getElementById('hProf').textContent=prof.length;
+  document.getElementById('hAvg').textContent=avg.toFixed(2)+'%';
+  document.getElementById('hSum').textContent='+'+sumP.toFixed(2)+' '+cur;
+
+  list.innerHTML=HD.map((h,i)=>{
+    const a=h.arbObj;
+    const h1=a?.home||h.match.split(' — ')[0]||'';
+    const h2=a?.away||h.match.split(' — ')[1]||'';
+    const legTags=a?.legs?a.legs.map(l=>{const lbl=l.point!==undefined?`${l.name} ${l.point}`:l.name;return `<div class="lg"><span class="lbk">${bkN(l.bkKey)}</span><span style="margin:0 3px;color:var(--m)">→</span><span class="lo">${lbl}</span><span style="margin:0 3px;color:var(--m)">|</span><span class="lk">${l.price.toFixed(2)}</span></div>`;}).join(''):'';
+    const instrHTML=a?.legs?a.legs.map((l,idx)=>{
+      const stake=(h.total/(l.price*a.margin)).toFixed(2);
+      const ret=(h.total/a.margin).toFixed(2);
+      const sl=bkS(l.bkKey,h1,h2);const hl=bkH(l.bkKey);const nm=bkN(l.bkKey);
+      const lbl=l.point!==undefined?`${l.name} ${l.point}`:l.name;
+      return `<div class="bi"><div class="bin">${idx+1}</div><div class="bib"><div class="bibk">📍 ${nm}</div><div class="bibo">Ставити: <strong>${lbl}</strong></div><div class="biba">${stake} ${h.currency}</div><div class="bibk2">Коеф: ${l.price.toFixed(3)} · ↩ ${ret} ${h.currency}</div><div style="display:flex;gap:3px;margin-top:3px">${sl?`<a class="bl" href="${sl}" target="_blank">🎯 ${nm} ↗</a>`:''}${hl?`<a class="bl" href="${hl}" target="_blank">🏠 ${nm} ↗</a>`:''}</div></div></div>`;
+    }).join(''):'';
+    const mLinks=h1?`<div class="ml" style="margin-top:6px"><a class="el ep" href="https://www.google.com/search?q=${enc(h1)}+vs+${enc(h2)}+odds" target="_blank">🔍 Google</a><a class="el" href="https://www.flashscore.com/search/?q=${enc(h1)}" target="_blank">⚡ Flashscore</a></div>`:'';
+    const bkL=a?.legs?a.legs.map(l=>{const sl=bkS(l.bkKey,h1,h2);return sl?`<a class="el" href="${sl}" target="_blank">🏦 ${bkN(l.bkKey)}</a>`:''}).filter(Boolean).join(''):'';
+
+    return `<div class="hi" onclick="toggleCard('hc${i}')">
+      <div class="ht">
+        <div>
+          <div class="hm">${a?sEmoji(a.sport):''} ${h.match}</div>
+          <div class="meta" style="margin-top:3px">
+            ${a?`<span class="mt mts">${a.sportLabel}</span><span class="mt mtl">${a.league}</span>`:''}
+            ${a?.isTotalArb?'<span class="mt mttotal">📊 ТОТАЛ</span>':''}
+            <span class="mt mtt">${h.date}</span>
+            ${a?.reason?`<span class="mt mtp">ℹ️ ${a.reason}</span>`:''}
+          </div>
+        </div>
+        <div class="hp ${h.isArb?'p':'n'}">${h.isArb?'+':''}${h.pct.toFixed(2)}%<div style="font-size:10px;font-weight:400;opacity:.7">${h.isArb?'+':''}${h.profit.toFixed(2)} ${h.currency}</div></div>
+      </div>
+      ${legTags?`<div class="legs">${legTags}</div>`:''}
+      <div class="ah">▼ Деталі</div>
+      <div class="hd" id="hc${i}">
+        ${instrHTML?`<div class="sl" style="margin-bottom:5px">🎯 Деталі ставок</div>${instrHTML}`:''}
+        ${mLinks}${bkL?`<div class="ml" style="margin-top:5px">${bkL}</div>`:''}
+        <button class="btn br bxs" style="margin-top:8px;width:auto" onclick="event.stopPropagation();delH(${i})">🗑</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function delH(i){HD.splice(i,1);localStorage.setItem('vh',JSON.stringify(HD));renderHist();}
+function clearHist(){if(!confirm('Очистити?'))return;HD=[];localStorage.setItem('vh','[]');renderHist();}
+
+init();
+</script>
+</body>
+</html>
